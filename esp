@@ -1,0 +1,35 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+  echo "Usage: esp <operation> <board>"
+  echo "  com <number>: opens picocom pointing to /dev/ttyUSB<number>"
+  echo "  up  <number>: upload scripts to the board in /dev/ttyUSB<number>"
+
+cd ESP8266
+case "$1" in
+  com)
+  echo 'Opening com...'
+  killall picocom
+  picocom /dev/ttyUSB$2 -b 115200
+  ;;
+  up)
+  killall picocom
+  echo 'Uploading boot.py...'
+  ampy -p /dev/ttyUSB$2 put boot.py
+  if [ -f main.py ]; then
+    echo 'Uploading main.py...'
+    ampy -p /dev/ttyUSB$2 put main.py
+  fi
+  ;;
+  run)
+  if [ -f main.py ]; then
+    echo 'running main.py...'
+    ampy -p /dev/ttyUSB$2 run main.py
+  fi
+  ;;
+  *)
+  echo 'command not found try on of these:'
+  echo "  com <number>: opens picocom pointing to /dev/ttyUSB<number>"
+  echo "  up  <number>: upload scripts to the board in /dev/ttyUSB<number>"
+  ;;
+esac
