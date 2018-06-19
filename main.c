@@ -14,6 +14,7 @@ FILE uart_io = FDEV_SETUP_STREAM(uecho, uread, _FDEV_SETUP_RW);
 int main(void) {
   stdout = stdin = &uart_io;
   UART_init(checkData);
+  // i2c_init(checkData); //Strongly suggested implementation
 
   DriveArray STPArray1 = {8, 9, 10, 0, 0, 0, 1.8, 10};
   pololu STP1 = newPololuFA(STPArray1);

@@ -12,6 +12,10 @@
 - [ ] Make movement sychronous ?
 - [ ] Port Server to Raspberry PI ?
 
+- [ ] Add AutoCamara as submodule with latest apk
+- [ ] Add Server files
+- [ ] Add ESP8266 scripts
+
 ## Known Bugs
 - [ ] Neverending PAPsInit()
 - [ ] Race ends not stoping steppers (#1 Related) (drivesinit.setted not updating)
