@@ -22,10 +22,10 @@ int main(void) {
   PAP1.enabled = 0;
   PAParray[0] = &PAP1;
 
-  // setPCInt(8);
-  // setPCInt(9);
-  setINT(2, RISING_FLANK, push);
-  setINT(3, FALLLING_FLANK, eje);
+  setPCInt(2);
+  setPCInt(3);
+  // setINT(2, RISING_FLANK, push);
+  // setINT(3, FALLLING_FLANK, eje);
 
   // PAPsInit(8);
   setTimer0(x8);
@@ -56,11 +56,11 @@ void push(void) {
   }
 }
 
-// ISR(PCINT0_vect) {
-//   _delay_ms(10);
-//   if (!readDPin(8)) {
-//     raceEnd(0, START);
-//   } else if (readDPin(9)) {
-//     raceEnd(0, END);
-//   };
-// };
+ISR(PCINT2_vect) {
+  _delay_ms(10);
+  if (!readDPin(3)) {
+    raceEnd(0, START);
+  } else if (readDPin(2)) {
+    raceEnd(0, END);
+  };
+};

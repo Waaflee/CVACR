@@ -1,5 +1,6 @@
-//A4988 congi values, number of simultaneous drivers and amount of stepps for homming
+//A4988 config values, number of simultaneous drivers and amount of stepps for homming
 #define POLOLU
+#define POLOLU_TIMER0_OVERFLOW
 #ifdef POLOLU
   #define NUM_STEPPERS 1
   #define INIT_STEPPS 30000

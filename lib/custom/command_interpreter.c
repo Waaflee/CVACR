@@ -86,6 +86,15 @@ void checkData(char data[]) {
       printf("->\tVelocidad actual = %d\n", PAParray[select]->motor->RPM);
     }
     break;
+  case 'Q':
+    if (UARTcount < 3) {
+      printf("Not enough arguments\n");
+      printf("Usage:\n");
+      printf("->\t:Qn\t:Quiet (brake)<motor>\n");
+    } else {
+      brake(PAParray[select]);
+    }
+    break;
   case 'h':
     help();
     break;
@@ -106,5 +115,6 @@ void help() {
   printf("->\t:H\t:Homming Routine\n");
   printf("->\t:Dn\t:Diagnosic<motor> Shows current position & speed of "
          "selected engine\n");
+  printf("->\t:Qn\t:Quiet (brake)<motor>\n");
   printf("->\t:h\t:Shows this help message\n");
 };
