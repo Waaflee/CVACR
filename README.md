@@ -1,6 +1,6 @@
-# Proyecto Fina de la cátedra Microcontroladores y Electrónica de Potencia de la Facultad de Ingeniería de la Universidad Nacional de Cuyo
+## Proyecto Final de la cátedra Microcontroladores y Electrónica de Potencia de la Facultad de Ingeniería de la Universidad Nacional de Cuyo
 
-## CVACR: Computer Vision Aided Cartesian Robot o Robot Cartesiano Asistido Por Visión Computacional
+### CVACR: Computer Vision Aided Cartesian Robot o Robot Cartesiano Asistido Por Visión Computacional
 
 Consiste en un robot Cartesiano con capacidades de reconocimiento de imágenes, utilizadas para detectar objetos y sus posiciones en un sistema de referencia.
 
