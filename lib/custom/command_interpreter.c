@@ -6,8 +6,8 @@ void checkData(char data[]) {
   uint8_t select;
 
   if (UARTcount > 2) {
-    for (size_t i = 3; i < UARTcount; i++) {
-      temp[i - 3] = data[i];
+    for (size_t i = 4; i < UARTcount; i++) {
+      temp[i - 4] = data[i];
     }
     arg = atoi(temp);
   }
@@ -18,35 +18,45 @@ void checkData(char data[]) {
   switch (data[1]) {
   case 'F':
     if (UARTcount < 3) {
-      help();
+      printf("Not enough arguments\n");
+      printf("Usage:\n");
+      printf("->\t:Fn:nnn\t:Forward<motor>:<stepps>\n");
     } else {
       rotateNSteps(arg, PAParray[select], FORWARD);
     }
     break;
   case 'B':
     if (UARTcount < 3) {
-      help();
+      printf("Not enough arguments\n");
+      printf("Usage:\n");
+      printf("->\t:Bn:nnn\t:Backward<motor>:<stepps>\n");
     } else {
       rotateNSteps(arg, PAParray[select], BACKWARD);
     }
     break;
   case 'S':
     if (UARTcount < 3) {
-      help();
+      printf("Not enough arguments\n");
+      printf("Usage:\n");
+      printf("->\t:Sn:nnn\t:Speed<motor>:<RPM>\n");
     } else {
       setSpeed(arg, PAParray[select]);
     }
     break;
   case 'P':
     if (UARTcount < 3) {
-      help();
+      printf("Not enough arguments\n");
+      printf("Usage:\n");
+      printf("->\t:Pn:nnn\t:Absolute Position<motor>:<position>\n");
     } else {
       goToabs(arg, PAParray[select]);
     }
     break;
   case 'R':
     if (UARTcount < 3) {
-      help();
+      printf("Not enough arguments\n");
+      printf("Usage:\n");
+      printf("->\t:Rn:nnn\t:Relative Position<motor>:<percentage>\n");
     } else {
       goTorel(arg, PAParray[select]);
     }
@@ -57,14 +67,19 @@ void checkData(char data[]) {
     break;
   case 'W':
     if (UARTcount < 3) {
-      help();
+      printf("Not enough arguments\n");
+      printf("Usage:\n");
+      printf("->\t:Fn:nnn\t:Forward<motor>:<stepps>\n");
     } else {
       stopPololu(PAParray[select]);
     }
     break;
   case 'D':
     if (UARTcount < 3) {
-      help();
+      printf("Not enough arguments\n");
+      printf("Usage:\n");
+      printf("->\t:Dn\t:Diagnosic<motor> Shows current position & speed of "
+             "selected engine\n");
     } else {
       printf("Diagnostico motor[%d]\n", select);
       printf("->\tPosicion actual = %d\n", PAParray[select]->motor->location);
