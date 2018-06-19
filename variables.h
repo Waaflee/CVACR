@@ -7,7 +7,7 @@
 //Define this if you want uart enabled printf() variable report on certain functions
 #ifndef UART
   #define UART
-  #define BAUD 57600
+  #define BAUD 57200
   #define UART_DEBBUG
   unsigned short int UARTSetted;
 #endif /* end of include guard: UART */

@@ -6,13 +6,16 @@
 #include "lib/custom/command_interpreter.h"
 #include <util/delay.h>
 
+void push(void);
+void eje(void);
+
 FILE uart_io = FDEV_SETUP_STREAM(uecho, uread, _FDEV_SETUP_RW);
 
 int main(void) {
   stdout = stdin = &uart_io;
   UART_init(checkData);
 
-  DriveArray STPArray1 = {2, 3, 4, 0, 0, 0, 1.8, 10};
+  DriveArray STPArray1 = {8, 9, 10, 0, 0, 0, 1.8, 10};
   pololu STP1 = newPololuFA(STPArray1);
   STEPPER PAP1;
   PAP1.motor = &STP1;
@@ -21,6 +24,8 @@ int main(void) {
 
   // setPCInt(8);
   // setPCInt(9);
+  setINT(2, RISING_FLANK, push);
+  setINT(3, FALLLING_FLANK, eje);
 
   // PAPsInit(8);
   setTimer0(x8);
@@ -32,18 +37,30 @@ int main(void) {
   printf("Setup Complete\n");
 
   while (1) {
-    /* code */
     togglePin(13);
     _delay_ms(500);
   }
   return 0;
 }
 
-ISR(PCINT0_vect) {
+void eje(void) {
   _delay_ms(10);
-  if (readDPin(8)) {
-    raceEnd(0, START);
-  } else if (readDPin(9)) {
+  if (!readDPin(3)) {
     raceEnd(0, END);
-  };
-};
+  }
+}
+void push(void) {
+  _delay_ms(10);
+  if (readDPin(2)) {
+    raceEnd(0, END);
+  }
+}
+
+// ISR(PCINT0_vect) {
+//   _delay_ms(10);
+//   if (!readDPin(8)) {
+//     raceEnd(0, START);
+//   } else if (readDPin(9)) {
+//     raceEnd(0, END);
+//   };
+// };
