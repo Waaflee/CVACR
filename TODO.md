@@ -14,5 +14,5 @@
 
 ## Known Bugs
 - [ ] Neverending PAPsInit()
+- [ ] Race ends not stoping steppers (#1 Related) (drivesinit.setted not updating)
 - [ ] External Interrupts break UART comms and who knows what else
-- [ ] Race ends not stoping steppers (#1 Realted)
