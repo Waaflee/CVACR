@@ -9,14 +9,15 @@
 - [ ] Test Arduino <--> ESP8266 I2C comms
 - [ ] Filter server Data on ESP8266
 - [ ] Send commands usable by command interpreter through I2C
-- [ ] Make movement sychronous ?
-- [ ] Port Server to Raspberry PI ?
-
-- [ ] Add AutoCamara as submodule with latest apk
+- [ ] Make movement sychronous (?)
+- [ ] Port Server to Raspberry PI (?)
+- [ ] Add AutoCamara as submodule with latest apk (?)
 - [ ] Add Server files
 - [ ] Add ESP8266 scripts
 
+###### (?) = optional features
+
 ## Known Bugs
-- [ ] Neverending PAPsInit()
-- [ ] Race ends not stoping steppers (#1 Related) (drivesinit.setted not updating)
+- [x] ~~Neverending PAPsInit()~~
+- [x] ~~Race ends not stoping steppers (#1 Related) (drivesinit.setted not updating)~~
 - [ ] External Interrupts break UART comms and who knows what else
