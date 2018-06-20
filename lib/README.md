@@ -1,6 +1,6 @@
 # Lib folder
 
-Here you can add your header and .c files, i recommend using separate folders
+Here you can add your header and .c files, I recommend using separate folders
 for separate modules or libs.
 
 For example if you are using my AVRDuino lib, it'll be cloned as /lib/AVRDuino/
