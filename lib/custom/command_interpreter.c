@@ -69,7 +69,7 @@ void checkData(char data[]) {
     if (UARTcount < 3) {
       printf("Not enough arguments\n");
       printf("Usage:\n");
-      printf("->\t:Fn:nnn\t:Forward<motor>:<stepps>\n");
+      printf("->\t:Wn\t:Wait (stops)<motor>\n");
     } else {
       stopPololu(PAParray[select]);
     }
@@ -113,6 +113,7 @@ void help() {
   printf("->\t:Pn:nnn\t:Absolute Position<motor>:<position>\n");
   printf("->\t:Rn:nnn\t:Relative Position<motor>:<percentage>\n");
   printf("->\t:H\t:Homming Routine\n");
+  printf("->\t:Wn\t:Wait (stops)<motor>\n");
   printf("->\t:Dn\t:Diagnosic<motor> Shows current position & speed of "
          "selected engine\n");
   printf("->\t:Qn\t:Quiet (brake)<motor>\n");

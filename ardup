@@ -32,4 +32,4 @@ avr-gcc -std=c11 -mmcu=atmega328p ./build/*.o -o ./build/main
 echo 'linked .o files'
 avr-objcopy -O ihex -R .eeprom ./build/main ./build/main.hex
 echo 'converted linked output to .hex'
-avrdude -F -V -c arduino -p ATMEGA328P -P /dev/ttyACM0 -b 115200 -U flash:w:./build/main.hex
+avrdude -F -V -c arduino -p ATMEGA328P -P /dev/ttyUSB1 -b 115200 -U flash:w:./build/main.hex
