@@ -5,129 +5,32 @@
   <meta charset="utf-8">
   <title>Atmega328p</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.0/css/bulma.css" />
+  <link rel="stylesheet" href="master.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.0/css/bulma.css" /> -->
+  <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/materia/bulmaswatch.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <!-- <script src="index.js"></script> -->
-  <style media="screen">
-    input[type=range] {
-      height: 18px;
-      -webkit-appearance: none;
-      margin: 10px 0;
-      width: 100%;
-    }
-
-    input[type=range]:focus {
-      outline: none;
-    }
-
-    input[type=range]::-webkit-slider-runnable-track {
-      width: 100%;
-      height: 5px;
-      cursor: pointer;
-      transition: 0.2s;
-      box-shadow: 0px 0px 0px #000000;
-      background: #00BCD4;
-      border-radius: 13px;
-      border: 0px solid #000000;
-    }
-
-    input[type=range]::-webkit-slider-thumb {
-      box-shadow: 0px 0px 1px #000000;
-      border: 0px solid #000000;
-      height: 12px;
-      width: 12px;
-      border-radius: 50px;
-      background: #FF3D00;
-      cursor: pointer;
-      -webkit-appearance: none;
-      margin-top: -3.5px;
-    }
-
-    input[type=range]:focus::-webkit-slider-runnable-track {
-      background: #00BCD4;
-    }
-
-    input[type=range]::-moz-range-track {
-      width: 100%;
-      height: 5px;
-      cursor: pointer;
-      transition: 0.2s;
-      box-shadow: 0px 0px 0px #000000;
-      background: #00BCD4;
-      border-radius: 13px;
-      border: 0px solid #000000;
-    }
-
-    input[type=range]::-moz-range-thumb {
-      box-shadow: 0px 0px 1px #000000;
-      border: 0px solid #000000;
-      height: 12px;
-      width: 12px;
-      border-radius: 50px;
-      background: #FF3D00;
-      cursor: pointer;
-    }
-
-    input[type=range]::-ms-track {
-      width: 100%;
-      height: 5px;
-      cursor: pointer;
-      transition: 0.2s;
-      background: transparent;
-      border-color: transparent;
-      color: transparent;
-    }
-
-    input[type=range]::-ms-fill-lower {
-      background: #00BCD4;
-      border: 0px solid #000000;
-      border-radius: 26px;
-      box-shadow: 0px 0px 0px #000000;
-    }
-
-    input[type=range]::-ms-fill-upper {
-      background: #00BCD4;
-      border: 0px solid #000000;
-      border-radius: 26px;
-      box-shadow: 0px 0px 0px #000000;
-    }
-
-    input[type=range]::-ms-thumb {
-      margin-top: 1px;
-      box-shadow: 0px 0px 1px #000000;
-      border: 0px solid #000000;
-      height: 12px;
-      width: 12px;
-      border-radius: 50px;
-      background: #FF3D00;
-      cursor: pointer;
-    }
-
-    input[type=range]:focus::-ms-fill-lower {
-      background: #00BCD4;
-    }
-
-    input[type=range]:focus::-ms-fill-upper {
-      background: #00BCD4;
-    }
-  </style>
+  <script src="master.js"></script>
 </head>
 
 <body>
   <section class="hero is-warning is-bold is-fullheight">
     <div class="hero-head">
-
     </div>
     <div class="hero-body">
-
       <div class="container">
         <h1 class="title">Atmega328p como IoT</h1>
         <h2 class="subtitle">Una implementación de control remoto basada en web</h2>
         <br>
         <h1 class="title">
-          Eje 1 <button class="button is-danger is-medium" type="button" name="button">Start homing!</button>
+          Eje X
         </h1>
+
+        <div class="">
+          <button class="button is-danger is-medium" type="button" name="homing">Referenciar!</button>
+          <button class="button is-info is-medium" type="button" name="info">info!</button>
+        </div>
         <hr style="background-color:black">
         <h2 class="subtitle" id="goTo">
           Posición Eje: 50%
@@ -137,87 +40,18 @@
         RPM: 10
       </h2>
         <input type="range" name="speed" value="33">
-        <br><br><br><br><br>
+        <br><br><br>
         <hr style="background-color:black">
       </div>
     </div>
-    <div class="hero-footer">
-
+    <div class="hero-footer" style="width: 50%; margin: auto;">
+      <p class="subtitle">Incoming Atmega328p messages</p>
+      <div class="control is-loading" style="margin: auto;">
+        <textarea name="messages" class="textarea" type="text" placeholder="Incoming Atmega328p messages"></textarea>
+      </div>
+      <br><br>
     </div>
   </section>
 </body>
-<script type="text/javascript">
-  'use strict';
-  window.onload = () => {
-
-    let position = document.getElementsByName('position')[0];
-    let speed = document.getElementsByName('speed')[0];
-    let data = document.getElementById('goTo');
-    let data2 = document.getElementById('RPM');
-
-    position.addEventListener("change", () => {
-      data.innerHTML = 'Posición Eje: ' + position.value + '%';
-      // axios({
-      //   method: 'get',
-      //   url:`http://192.168.0.110:8081/?position=${position.value}&speed=${Math.round((speed.value/100 * 30))}&homing=0`,
-      //   data: {
-      //     position: position.value,
-      //     speed: Math.round((speed.value/100 * 30))
-      //   }
-      // })
-      // .then(function (response) {
-      //   console.log(response);
-      // })
-      // .catch(function (error) {
-      //   console.log(error);
-      // });
-      axios.post('/goto', {
-          position: position.value,
-          speed: Math.round((speed.value / 100 * 30))
-        })
-        .then(function(response) {
-          console.log(response);
-          console.log(response.data);
-        })
-        .catch(function(error) {
-          console.log(error);
-        });
-    });
-
-    speed.addEventListener("change", () => {
-      data2.innerHTML = 'RPM: ' + Math.round((speed.value / 100 * 30));
-      axios({
-          method: 'get',
-          url: `http://192.168.0.110:8081/?position=${position.value}&speed=${Math.round((speed.value/100 * 30))}&homing=0`,
-          data: {
-            position: position.value,
-            speed: Math.round((speed.value / 100 * 30))
-          }
-        })
-        .then(function(response) {
-          console.log(response);
-        })
-        .catch(function(error) {
-          console.log(error);
-        });
-    });
-    document.getElementsByName('button')[0].addEventListener('click', () => {
-      axios({
-          method: 'get',
-          url: `http://192.168.0.110:8081/?homing=1`,
-          data: {
-            position: position.value,
-            speed: Math.round((speed.value / 100 * 30))
-          }
-        })
-        .then(function(response) {
-          console.log(response);
-        })
-        .catch(function(error) {
-          console.log(error);
-        });
-    });
-  };
-</script>
 
 </html>
