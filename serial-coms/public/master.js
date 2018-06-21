@@ -2,8 +2,8 @@
 window.onload = () => {
 
   let messages = document.getElementsByName('messages')[0];
-
-  let socket = io.connect('http://localhost:8080');
+  // let socket = io.connect('http://localhost:8080');
+  let socket = io.connect('http://192.168.0.110:8080');
   socket.on('uart message', function (data) {
     console.log(data);
     messages.value += data.message;
