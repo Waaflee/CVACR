@@ -3,7 +3,7 @@
 ### ATMEGA328p como IoT
 
 Consiste Atmega328p programado como un interprete de comandos via serial, diseñado para controlar un eje accionado por un motor PaP con driver tipo pololu (a4988).
-Además un servidor basado en nodejs servirá una página web la cual se utilizará como interfaz para controlar el eje (localhost:8080 como servidor estático para front end, y loalhost:8081 para las comunicaciones con el puerto serie) .
+Además un servidor basado en nodejs servirá una página web la cual se utilizará como interfaz para controlar el eje (localhost:8080 como servidor estático para front end).
 
 Este Proyecto es Fuertemente dependiente de la librería de abstracción de hardware [AVRDuino](https://github.com/Waaflee/AVRDuino) para el manejo de un ATMEGA328p, que controlará los motores.
 
