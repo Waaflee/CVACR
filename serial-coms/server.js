@@ -35,7 +35,7 @@ app.post('/goto', (req, res) => {
     'motor': req.body.motor
   };
   res.send(JSON.stringify(response));
-  port.write(`:S${req.body.motor}:${req.body.position}\n`);
+  port.write(`:R${req.body.motor}:${req.body.position}\n`);
 
 });
 
