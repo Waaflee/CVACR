@@ -10,11 +10,11 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "nodemon": "^1.17.5"
-  },
+  "devDependencies": {},
   "dependencies": {
     "connect": "^3.6.6",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
     "serialport": "^6.2.0",
     "serve-static": "^1.13.2",
     "socket.io": "^2.1.1"
