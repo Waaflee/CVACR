@@ -1,10 +1,11 @@
 ## Proyecto Final de la cátedra Microcontroladores y Electrónica de Potencia de la Facultad de Ingeniería de la Universidad Nacional de Cuyo
 
-### CVACR: Computer Vision Aided Cartesian Robot o Robot Cartesiano Asistido Por Visión Computacional
+### ATMEGA328p como IoT
 
-Consiste en un robot Cartesiano con capacidades de reconocimiento de imágenes, utilizadas para detectar objetos y sus posiciones en un sistema de referencia.
+Consiste Atmega328p programado como un interprete de comandos via serial, diseñado para controlar un eje accionado por un motor PaP con driver tipo pololu (a4988).
+Además un servidor basado en nodejs servirá una página web la cual se utilizará como interfaz para controlar el eje (localhost:8080 como servidor estático para front end, y loalhost:8081 para las comunicaciones con el puerto serie) .
 
-Este Proyecto es Fuertemente dependiente de la librería de abstracción de hardware [AVRDuino](https://github.com/Waaflee/AVRDuino) para el manejo de un ATMEGA328p, que controlará los motores, y de [OpenCV](https://opencv.org/) para el reconocimiento de imágenes.
+Este Proyecto es Fuertemente dependiente de la librería de abstracción de hardware [AVRDuino](https://github.com/Waaflee/AVRDuino) para el manejo de un ATMEGA328p, que controlará los motores.
 
 Dado que este proyecto contiene submódulos, la metodología corriente de trabajo (git clone) no funcionará. En vez de eso se debe proceder de la siguiente manera:
  - clonar el repositorio de forma recursiva `git clone --recursive $REPOSITORIO`(reemplazar $REPOSITORIO por la dirección correcta) esto descargara también los submódulos, que de otra forma aparecerían como carpetas vacías. Debe notarse que los submódulos
