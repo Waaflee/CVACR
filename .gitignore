@@ -19,3 +19,4 @@
 dkms.conf
 build/
 .vscode/
+serial-coms/
