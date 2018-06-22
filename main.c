@@ -29,7 +29,7 @@ int main(void) {
   setPin(9, OUTPUT);
   pwm = newPWM1();
   pwm.regist(&pwm);
-  pwm.freq(20000);
+  pwm.freq(65000);
   // ICR1 = 20000;
 
   pwm.dutyA(10);
