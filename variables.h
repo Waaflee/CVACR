@@ -3,7 +3,7 @@
 #define POLOLU_TIMER0_OVERFLOW
 #ifdef POLOLU
   #define NUM_STEPPERS 1
-  #define INIT_STEPPS 30000
+  #define INIT_STEPPS 3000
 #endif
 //Define this if you want uart enabled printf() variable report on certain functions
 #ifndef UART

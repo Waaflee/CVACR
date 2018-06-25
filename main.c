@@ -36,7 +36,6 @@ int main(void) {
   sei();
 
   setPin(13, OUTPUT);
-  _delay_ms(1000);
   printf("Setup Complete\n");
 
   while (1) {
@@ -47,10 +46,10 @@ int main(void) {
 }
 
 ISR(PCINT2_vect) {
-  _delay_ms(20);
+  _delay_ms(15);
   if (readDPin(3)) {
     raceEnd(0, START);
-  } else if (!readDPin(2)) {
+  } else if (readDPin(2)) {
     raceEnd(0, END);
   };
 };
