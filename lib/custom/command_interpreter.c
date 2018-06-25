@@ -59,6 +59,7 @@ void checkData(char data[]) {
       printf("->\t:Rn:nnn\t:Relative Position<motor>:<percentage>\n");
     } else {
       goTorel(arg, PAParray[select]);
+      pwm.dutyA(pt100(arg));
     }
     break;
   case 'H':

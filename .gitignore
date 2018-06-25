@@ -19,4 +19,8 @@
 dkms.conf
 build/
 .vscode/
+<<<<<<< HEAD
 serial-coms/
+=======
+serial-coms/node_modules/
+>>>>>>> node-server

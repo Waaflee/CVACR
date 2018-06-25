@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Atmega328p</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="master.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.0/css/bulma.css" /> -->
+  <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/materia/bulmaswatch.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="master.js"></script>
+</head>
+
+<body>
+  <section class="hero is-warning is-bold is-fullheight">
+    <div class="hero-head">
+    </div>
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">Atmega328p como IoT</h1>
+        <h2 class="subtitle">Una implementación de control remoto basada en web</h2>
+        <br>
+        <h1 class="title">
+          Eje X
+        </h1>
+
+        <div class="">
+          <button class="button is-danger is-medium" type="button" name="homing">Referenciar!</button>
+          <button class="button is-info is-medium" type="button" name="info">info!</button>
+        </div>
+        <hr style="background-color:black">
+        <h2 class="subtitle" id="goTo">
+          Posición Eje: 50%
+        </h2>
+        <input type="range" name="position" value="50">
+        <h2 class="subtitle" id="RPM">
+        RPM: 10
+      </h2>
+        <input type="range" name="speed" value="33">
+        <br><br><br>
+        <hr style="background-color:black">
+      </div>
+    </div>
+    <div class="hero-footer" style="width: 50%; margin: auto;">
+      <p class="subtitle">Incoming Atmega328p messages</p>
+      <div class="control is-loading" style="margin: auto;">
+        <textarea name="messages" class="textarea" type="text" placeholder="Incoming Atmega328p messages"></textarea>
+      </div>
+      <br><br>
+    </div>
+  </section>
+</body>
+
+</html>
