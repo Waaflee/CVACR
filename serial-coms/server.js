@@ -1,7 +1,7 @@
 'use strict';
 
 const SerialPort = require('serialport');
-const port = new SerialPort('/dev/ttyUSB1', {
+const port = new SerialPort('/dev/ttyUSB0', {
   baudRate: 57600
 });
 const Readline = SerialPort.parsers.Readline;

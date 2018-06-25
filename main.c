@@ -32,7 +32,7 @@ int main(void) {
   pwm.freq(65000);
   // ICR1 = 20000;
 
-  pwm.dutyA(10);
+  pwm.dutyA(5);
 
   setPCInt(2);
   setPCInt(3);
@@ -73,7 +73,7 @@ ISR(PCINT2_vect) {
   _delay_ms(10);
   if (readDPin(3)) {
     raceEnd(0, START);
-  } else if (readDPin(2)) {
+  } else if (!readDPin(2)) {
     raceEnd(0, END);
   };
 };
