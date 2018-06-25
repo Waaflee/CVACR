@@ -6,8 +6,5 @@
 
 struct pwm1 pwm;
 
-enum estados {activado, desactivado, homing, referenciado};
-volatile extern enum estados estado;
-
 void help();
 void checkData(char data[]);
